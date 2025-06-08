@@ -87,6 +87,7 @@ public class GameScreen extends ScreenAdapter {
         if (roundTime > ROUND_DURATION) {
             score -= 1;
             shouldNextRound = true;
+            tennis.soundManager.playFail();
         }
 
         if (shouldNextRound) {
@@ -132,7 +133,7 @@ public class GameScreen extends ScreenAdapter {
 
 
 
-        renderer.render(tennis.world, tennis.camera.combined.cpy().scl(1 / SCALE));
+//        renderer.render(tennis.world, tennis.camera.combined.cpy().scl(1 / SCALE));
     }
 
     private void handleInput() {
