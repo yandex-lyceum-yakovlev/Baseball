@@ -23,7 +23,7 @@ public class WallObject {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.friction = 0f;
-        fixtureDef.restitution = 1f; // 100% отскок
+        fixtureDef.restitution = 1f;
 
         body.createFixture(fixtureDef);
         shape.dispose();

@@ -25,7 +25,6 @@ public class RacketObject extends GameObject{
         body.setAngularDamping(2);
         body.setFixedRotation(false);
 
-        // Прямоугольный коллайдер
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(width * SCALE / 2f, height * SCALE / 2f);
 

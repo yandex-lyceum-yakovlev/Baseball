@@ -25,7 +25,6 @@ public class GameObject extends Sprite {
 
         Body body = world.createBody(def);
 
-        // по умолчанию круглый коллайдер (можно переопределить в подклассах)
         CircleShape shape = new CircleShape();
         shape.setRadius(Math.max(width, height) * SCALE);
 
@@ -41,7 +40,6 @@ public class GameObject extends Sprite {
     }
 
     public void update() {
-        // Обновляем позицию и угол спрайта в соответствии с телом
         setPosition(
             body.getPosition().x / SCALE - getWidth() / 2f,
             body.getPosition().y / SCALE - getHeight() / 2f

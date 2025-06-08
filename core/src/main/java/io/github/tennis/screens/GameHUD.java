@@ -30,7 +30,7 @@ public class GameHUD {
         timeView = new TextView(font, 10, GameSettings.SCREEN_HEIGHT - 30, "Time: 0");
         scoreView = new TextView(font, GameSettings.SCREEN_WIDTH - 150, GameSettings.SCREEN_HEIGHT - 30, "Score: 0");
         menuButton = new ButtonView(
-            GameResources.BUTTON_IMG_PATH, // путь к текстуре кнопки
+            GameResources.BUTTON_IMG_PATH,
             GameSettings.SCREEN_WIDTH / 2f - 50,
             GameSettings.SCREEN_HEIGHT - 50,
             100, 40,

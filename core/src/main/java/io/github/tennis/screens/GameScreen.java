@@ -113,12 +113,10 @@ public class GameScreen extends ScreenAdapter {
             menuButton.draw(tennis.batch);
             tennis.batch.end();
 
-            // Обработка нажатия на кнопку
             if (Gdx.input.justTouched()) {
                 Vector3 touch = tennis.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
                 if (menuButton.isHit(touch.x, touch.y)) {
-                    // Вернуться в меню
-                    tennis.setScreen(new MenuScreen(tennis)); // создаёшь MenuScreen отдельно
+                    tennis.setScreen(new MenuScreen(tennis));
                 }
             }
         }
@@ -142,11 +140,9 @@ public class GameScreen extends ScreenAdapter {
             Vector3 touch = tennis.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
             Vector2 touchPos = new Vector2(touch.x * SCALE, touch.y * SCALE);
 
-            // Ограничение по высоте — не выше трети экрана
             float maxY = (GameSettings.SCREEN_HEIGHT / 3f) * SCALE;
             if (touchPos.y > maxY) return;
 
-            // Проверка, попали ли в ракетку
             if (racketObject.body.getFixtureList().first().testPoint(touchPos)) {
                 MouseJointDef jointDef = new MouseJointDef();
                 jointDef.bodyA = groundBody;
@@ -165,10 +161,9 @@ public class GameScreen extends ScreenAdapter {
                 Vector3 touch = tennis.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
                 Vector2 touchPos = new Vector2(touch.x * SCALE, touch.y * SCALE);
 
-                // Ограничение по высоте (во время перемещения тоже)
                 float maxY = (GameSettings.SCREEN_HEIGHT / 3f) * SCALE;
                 if (touchPos.y > maxY) {
-                    touchPos.y = maxY; // просто прижимаем к максимальному уровню
+                    touchPos.y = maxY;
                 }
 
                 mouseJoint.setTarget(touchPos);
@@ -192,7 +187,6 @@ public class GameScreen extends ScreenAdapter {
         ballObject.draw(tennis.batch);
         targetObject.draw(tennis.batch);
         for (ObstacleObject obstacle : obstacles) obstacle.draw(tennis.batch);
-//        scoreView.draw(tennis.batch);
         tennis.batch.end();
     }
 
@@ -210,7 +204,6 @@ public class GameScreen extends ScreenAdapter {
             mouseJoint = null;
         }
 
-        // Удалить старые объекты
         if (ballObject != null) tennis.world.destroyBody(ballObject.body);
         if (racketObject != null) tennis.world.destroyBody(racketObject.body);
         if (targetObject != null) tennis.world.destroyBody(targetObject.body);
@@ -219,7 +212,6 @@ public class GameScreen extends ScreenAdapter {
         }
         obstacles.clear();
 
-        // Сбросить время раунда
         roundTime = 0f;
 
         // Создать мяч
@@ -227,17 +219,14 @@ public class GameScreen extends ScreenAdapter {
         float ballY = SCREEN_HEIGHT * 0.4f;
         ballObject = new BallObject(BALL_IMG_PATH, ballX, ballY, BALL_DIAMETER, tennis.world);
 
-        // Создать ракетку
         float racketX = SCREEN_WIDTH / 2f;
         float racketY = SCREEN_HEIGHT * 0.1f;
         racketObject = new RacketObject(RACKET_IMG_PATH, racketX, racketY, RACKET_WIDTH, RACKET_HEIGHT, tennis.world);
 
-        // Создать цель
         float targetX = MathUtils.random(100, SCREEN_WIDTH - 100);
         float targetY = MathUtils.random(SCREEN_HEIGHT * 2f / 3f, SCREEN_HEIGHT - 100);
         targetObject = new TargetObject(TARGET_IMG_PATH, targetX, targetY, TARGET_DIAMETER, tennis.world);
 
-        // Создать препятствия
         for (int i = 0; i < score; i++) {
             float x = MathUtils.random(100, SCREEN_WIDTH - 100);
             float y = MathUtils.random(SCREEN_HEIGHT * 2f / 3f, SCREEN_HEIGHT - 100);
@@ -246,28 +235,25 @@ public class GameScreen extends ScreenAdapter {
             obstacles.add(obstacle);
         }
 
-        // Обновить contactListener, чтобы он ссылался на новые объекты
         tennis.world.setContactListener(new BallContactListener(ballObject, targetObject, bottomWallObject, this));
     }
 
     private void showGameOverUI() {
         gameOver = true;
 
-        // Текст "You lost"
         gameOverText = new TextView(
-            tennis.largeWhiteFont, // Можно заменить на заранее загруженный шрифт
-            SCREEN_WIDTH / 2f - 100, // Центр по X
+            tennis.largeWhiteFont,
+            SCREEN_WIDTH / 2f - 100,
             SCREEN_HEIGHT / 2f + 40,
             "Game Over"
         );
 
-        // Кнопка Menu
         menuButton = new ButtonView(
-            BUTTON_IMG_PATH, // путь к изображению кнопки
+            BUTTON_IMG_PATH,
             SCREEN_WIDTH / 2f - 100,
             SCREEN_HEIGHT / 2f - 40,
             200, 50,
-            tennis.largeWhiteFont, // или общий font
+            tennis.largeWhiteFont,
             "Menu"
         );
     }

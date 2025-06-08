@@ -22,7 +22,7 @@ public class ButtonView extends View {
 
 
     public void draw(SpriteBatch batch) {
-        super.draw(batch); // рисует спрайт
+        super.draw(batch);
 
         if (font != null && text != null) {
             GlyphLayout layout = new GlyphLayout(font, text);
@@ -35,10 +35,6 @@ public class ButtonView extends View {
 
     public void setText(String text) {
         this.text = text;
-
-        // Пересчитать размеры
-//        GlyphLayout layout = new GlyphLayout(font, text);
-//        setSize(layout.width, layout.height); // влияет на isHit()
     }
 
     @Override

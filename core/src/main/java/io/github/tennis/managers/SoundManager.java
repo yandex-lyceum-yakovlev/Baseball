@@ -24,7 +24,7 @@ public class SoundManager {
 
         backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal(BG_MUSIC_PATH));
         backgroundMusic.setLooping(true);
-        backgroundMusic.setVolume(volume); // отдельно можно настроить громкость музыки
+        backgroundMusic.setVolume(volume);
     }
 
     public void playHit() {

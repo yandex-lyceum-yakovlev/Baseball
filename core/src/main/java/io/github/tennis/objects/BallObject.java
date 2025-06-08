@@ -10,7 +10,7 @@ public class BallObject extends GameObject {
 
     public BallObject(String texturePath, float x, float y, float diameter, World world) {
         super(texturePath, x, y, diameter, diameter, world);
-        body.setUserData("ball"); // по желанию, если будешь использовать в ContactListener
+        body.setUserData("ball");
     }
 
     @Override
@@ -22,13 +22,13 @@ public class BallObject extends GameObject {
         Body body = world.createBody(def);
 
         CircleShape shape = new CircleShape();
-        shape.setRadius((width * SCALE) / 2f); // диаметр = width
+        shape.setRadius((width * SCALE) / 2f);
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
-        fixtureDef.density = 0.5f;      // можешь подбирать под игру
+        fixtureDef.density = 0.5f;
         fixtureDef.friction = 0.2f;
-        fixtureDef.restitution = 0.9f;  // отскок
+        fixtureDef.restitution = 0.9f;
 
         body.createFixture(fixtureDef);
         shape.dispose();

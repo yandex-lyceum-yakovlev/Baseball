@@ -22,7 +22,6 @@ public class TextView extends View {
     public void setText(String text) {
         this.text = text;
 
-        // Пересчитать размеры
         GlyphLayout layout = new GlyphLayout(font, text);
         setSize(layout.width, layout.height); // влияет на isHit()
     }
