@@ -52,7 +52,7 @@ public class SettingsScreen implements Screen {
 
         y -= 150;
 
-        backButton = new ButtonView(BUTTON_IMG_PATH, centerX - 100, y, 200, 70,tennis.commonBlackFont ,"Back to Menu");
+        backButton = new ButtonView(BUTTON_IMG_PATH, centerX - 100, y, 200, 70,tennis.commonWhiteFont ,"Back to Menu");
 
         backgroundTexture = new Texture(BG_PATH);
     }

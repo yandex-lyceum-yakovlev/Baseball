@@ -55,16 +55,14 @@ public class GameScreen extends ScreenAdapter {
 
     List<ObstacleObject> obstacles = new ArrayList<>();
 
-    //    public boolean nextRoundScheduled = false;
-//    public float nextRoundDelay = 0f;
     public boolean shouldNextRound = false;
 
     public int score = 0;
-//    TextView scoreView;
+
 
     private TextView gameOverText;
     private ButtonView menuButton;
-    private boolean gameOver = false;
+    public boolean gameOver = false;
 
 
     public GameScreen(Tennis tennis) {

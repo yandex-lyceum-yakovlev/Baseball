@@ -20,7 +20,7 @@ public class SoundManager {
     public SoundManager() {
         hitSound = Gdx.audio.newSound(Gdx.files.internal(HIT_SOUND_PATH));
         scoreSound = Gdx.audio.newSound(Gdx.files.internal(SCORE_SOUND_PATH));
-        failSound = Gdx.audio.newSound(Gdx.files.internal(SCORE_SOUND_PATH));
+        failSound = Gdx.audio.newSound(Gdx.files.internal(FAIL_SOUND_PATH));
 
         backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal(BG_MUSIC_PATH));
         backgroundMusic.setLooping(true);

@@ -62,7 +62,12 @@ public class MenuScreen extends ScreenAdapter {
             tennis.touch = tennis.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (startButtonView.isHit(tennis.touch.x, tennis.touch.y)) {
+                if (tennis.gameScreen.score < 0) {
+                    tennis.gameScreen.gameOver = false;
+                    tennis.gameScreen.score = 0;
+                }
                 tennis.setScreen(tennis.gameScreen);
+
             }
             if (exitButtonView.isHit(tennis.touch.x, tennis.touch.y)) {
                 Gdx.app.exit();
