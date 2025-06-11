@@ -83,7 +83,7 @@ public class Tennis extends Game {
         if (gameScreen != null) gameScreen.dispose();
         if (settingsScreen != null) settingsScreen.dispose();
         soundManager.dispose();
-
+        textureManager.dispose();
     }
 
     public void stepWorld() {
