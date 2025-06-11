@@ -43,18 +43,18 @@ public class SettingsScreen implements Screen {
         titleText = new TextView(tennis.commonWhiteFont, centerX - 100, y + 100, "Settings");
 
         soundLabel = new TextView(tennis.commonWhiteFont, centerX - 200, y, "Sound Effects:");
-        soundToggle = new ButtonView(BUTTON_IMG_PATH, centerX + 100, y - 40, 150, 60, tennis.commonWhiteFont, "ON");
+        soundToggle = new ButtonView(tennis.textureManager.BUTTON_IMG, centerX + 100, y - 40, 150, 60, tennis.commonWhiteFont, "ON");
 
         y -= 100;
 
         musicLabel = new TextView(tennis.commonWhiteFont, centerX - 200, y, "Music:");
-        musicToggle = new ButtonView(BUTTON_IMG_PATH,  centerX + 100, y - 40, 150, 60, tennis.commonWhiteFont, "ON");
+        musicToggle = new ButtonView(tennis.textureManager.BUTTON_IMG,  centerX + 100, y - 40, 150, 60, tennis.commonWhiteFont, "ON");
 
         y -= 150;
 
-        backButton = new ButtonView(BUTTON_IMG_PATH, centerX - 100, y, 200, 70,tennis.commonWhiteFont ,"Back to Menu");
+        backButton = new ButtonView(tennis.textureManager.BUTTON_IMG, centerX - 100, y, 200, 70,tennis.commonWhiteFont ,"Back to Menu");
 
-        backgroundTexture = new Texture(BG_PATH);
+        backgroundTexture = tennis.textureManager.BG;
     }
 
     @Override

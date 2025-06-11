@@ -8,8 +8,8 @@ import static io.github.tennis.GameSettings.*;
 
 public class ObstacleObject extends GameObject {
 
-    public ObstacleObject(String texturePath, float x, float y, float diameter, World world) {
-        super(texturePath, x, y, diameter, diameter, world);
+    public ObstacleObject(Texture texture, float x, float y, float diameter, World world) {
+        super(texture, x, y, diameter, diameter, world);
     }
 
     @Override

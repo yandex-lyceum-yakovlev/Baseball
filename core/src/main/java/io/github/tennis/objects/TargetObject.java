@@ -8,8 +8,8 @@ import com.badlogic.gdx.physics.box2d.*;
 import static io.github.tennis.GameSettings.*;
 public class TargetObject extends GameObject {
 
-    public TargetObject(String texturePath, float x, float y, float diameter, World world) {
-        super(texturePath, x, y, diameter, diameter, world);
+    public TargetObject(Texture texture, float x, float y, float diameter, World world) {
+        super(texture, x, y, diameter, diameter, world);
     }
 
     @Override

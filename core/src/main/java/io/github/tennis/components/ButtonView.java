@@ -10,8 +10,8 @@ public class ButtonView extends View {
     private BitmapFont font;
     private String text;
 
-    public ButtonView(String texturePath, float x, float y, float width, float height, BitmapFont font, String text) {
-        super(new Texture(texturePath), x, y, width, height);
+    public ButtonView(Texture texture, float x, float y, float width, float height, BitmapFont font, String text) {
+        super(texture, x, y, width, height);
         this.font = font;
         this.text = text;
     }

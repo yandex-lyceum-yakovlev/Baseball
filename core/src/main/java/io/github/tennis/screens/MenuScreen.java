@@ -30,11 +30,11 @@ public class MenuScreen extends ScreenAdapter {
 
 //        backgroundView = new MovingBackgroundView(GameResources.BACKGROUND_IMG_PATH);
         titleView = new TextView(tennis.largeWhiteFont, 250, 760, "BaseBall");
-        startButtonView = new ButtonView(BUTTON_IMG_PATH,140, 646, 440, 70, tennis.commonWhiteFont,  "Play");
-        settingsButtonView = new ButtonView(BUTTON_IMG_PATH,140, 551, 440, 70, tennis.commonWhiteFont,  "Settings");
-        exitButtonView = new ButtonView(BUTTON_IMG_PATH,140, 456, 440, 70, tennis.commonWhiteFont, "Exit");
+        startButtonView = new ButtonView(tennis.textureManager.BUTTON_IMG,140, 646, 440, 70, tennis.commonWhiteFont,  "Play");
+        settingsButtonView = new ButtonView(tennis.textureManager.BUTTON_IMG,140, 551, 440, 70, tennis.commonWhiteFont,  "Settings");
+        exitButtonView = new ButtonView(tennis.textureManager.BUTTON_IMG,140, 456, 440, 70, tennis.commonWhiteFont, "Exit");
 
-        backgroundTexture = new Texture(BG_PATH);
+        backgroundTexture = tennis.textureManager.BG;
     }
 
     @Override

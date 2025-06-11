@@ -8,8 +8,8 @@ import static io.github.tennis.GameSettings.*;
 
 public class BallObject extends GameObject {
 
-    public BallObject(String texturePath, float x, float y, float diameter, World world) {
-        super(texturePath, x, y, diameter, diameter, world);
+    public BallObject(Texture texture, float x, float y, float diameter, World world) {
+        super(texture, x, y, diameter, diameter, world);
         body.setUserData("ball");
     }
 

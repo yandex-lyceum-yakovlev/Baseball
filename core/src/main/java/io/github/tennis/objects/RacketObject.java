@@ -1,5 +1,6 @@
 package io.github.tennis.objects;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -9,8 +10,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import static io.github.tennis.GameSettings.*;
 public class RacketObject extends GameObject{
 
-    public RacketObject(String texturePath, float x, float y, float width, float height,  World world) {
-        super(texturePath, x, y, width, height, world);
+    public RacketObject(Texture texture, float x, float y, float width, float height, World world) {
+        super(texture, x, y, width, height, world);
     }
 
     @Override

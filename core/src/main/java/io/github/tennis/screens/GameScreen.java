@@ -70,7 +70,7 @@ public class GameScreen extends ScreenAdapter {
         nextRound();
         createWalls();
         hud = new GameHUD(tennis, tennis.commonWhiteFont);
-        backgroundTexture = new Texture(BG_PATH);
+        backgroundTexture = tennis.textureManager.BG;
         BodyDef bodyDef = new BodyDef();
         groundBody = tennis.world.createBody(bodyDef);
         renderer = new Box2DDebugRenderer();
@@ -217,21 +217,21 @@ public class GameScreen extends ScreenAdapter {
         // Создать мяч
         float ballX = SCREEN_WIDTH / 2f;
         float ballY = SCREEN_HEIGHT * 0.4f;
-        ballObject = new BallObject(BALL_IMG_PATH, ballX, ballY, BALL_DIAMETER, tennis.world);
+        ballObject = new BallObject(tennis.textureManager.BALL_IMG, ballX, ballY, BALL_DIAMETER, tennis.world);
 
         float racketX = SCREEN_WIDTH / 2f;
         float racketY = SCREEN_HEIGHT * 0.1f;
-        racketObject = new RacketObject(RACKET_IMG_PATH, racketX, racketY, RACKET_WIDTH, RACKET_HEIGHT, tennis.world);
+        racketObject = new RacketObject(tennis.textureManager.RACKET_IMG, racketX, racketY, RACKET_WIDTH, RACKET_HEIGHT, tennis.world);
 
         float targetX = MathUtils.random(100, SCREEN_WIDTH - 100);
         float targetY = MathUtils.random(SCREEN_HEIGHT * 2f / 3f, SCREEN_HEIGHT - 100);
-        targetObject = new TargetObject(TARGET_IMG_PATH, targetX, targetY, TARGET_DIAMETER, tennis.world);
+        targetObject = new TargetObject(tennis.textureManager.TARGET_IMG, targetX, targetY, TARGET_DIAMETER, tennis.world);
 
         for (int i = 0; i < score; i++) {
             float x = MathUtils.random(100, SCREEN_WIDTH - 100);
             float y = MathUtils.random(SCREEN_HEIGHT * 2f / 3f, SCREEN_HEIGHT - 100);
 
-            ObstacleObject obstacle = new ObstacleObject(OBSTACLE_IMG_PATH, x, y, OBSTACLE_DIAMETER, tennis.world);
+            ObstacleObject obstacle = new ObstacleObject(tennis.textureManager.OBSTACLE_IMG, x, y, OBSTACLE_DIAMETER, tennis.world);
             obstacles.add(obstacle);
         }
 
@@ -249,7 +249,7 @@ public class GameScreen extends ScreenAdapter {
         );
 
         menuButton = new ButtonView(
-            BUTTON_IMG_PATH,
+            tennis.textureManager.BUTTON_IMG,
             SCREEN_WIDTH / 2f - 100,
             SCREEN_HEIGHT / 2f - 40,
             200, 50,

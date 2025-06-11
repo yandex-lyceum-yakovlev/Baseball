@@ -10,8 +10,8 @@ public class GameObject extends Sprite {
 
     public Body body;
 
-    public GameObject(String texturePath, float x, float y, float width, float height, World world) {
-        super(new Texture(texturePath));
+    public GameObject(Texture texture, float x, float y, float width, float height, World world) {
+        super(texture);
         setSize(width, height);
         setOriginCenter();
 

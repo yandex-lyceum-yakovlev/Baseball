@@ -16,6 +16,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import io.github.tennis.managers.SoundManager;
+import io.github.tennis.managers.TextureManager;
 import io.github.tennis.screens.GameScreen;
 import io.github.tennis.screens.MenuScreen;
 import io.github.tennis.screens.SettingsScreen;
@@ -44,12 +45,16 @@ public class Tennis extends Game {
 
     public SoundManager soundManager;
 
+    public TextureManager textureManager;
+
 
     @Override
     public void create() {
 
         Box2D.init();
         world = new World(new Vector2(0, 0), true);
+
+        textureManager = new TextureManager();
 
         soundManager = new SoundManager();
         soundManager.playMusic();
@@ -74,7 +79,11 @@ public class Tennis extends Game {
     @Override
     public void dispose() {
         batch.dispose();
+        if (menuScreen != null) menuScreen.dispose();
+        if (gameScreen != null) gameScreen.dispose();
+        if (settingsScreen != null) settingsScreen.dispose();
         soundManager.dispose();
+
     }
 
     public void stepWorld() {
